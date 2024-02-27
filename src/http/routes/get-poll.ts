@@ -14,6 +14,9 @@ app.get('/polls/:pollId', async (request, reply) => {
   const poll =  await prisma.poll.findUnique({
     where: {
       id: pollId,
+    },
+    include: {
+      options: true
     }
   })
 
