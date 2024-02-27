@@ -16,7 +16,12 @@ app.get('/polls/:pollId', async (request, reply) => {
       id: pollId,
     },
     include: {
-      options: true
+      options: {
+        select: {
+          id: true, 
+          title: true
+        }
+      }
     }
   })
 
