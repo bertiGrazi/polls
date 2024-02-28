@@ -25,7 +25,7 @@ app.post('/polls/:pollId/votes', async (request, reply) => {
         sessionId_pollId: {
           sessionId,
           pollId
-        }
+        },
       }
     })
 
@@ -53,8 +53,8 @@ app.post('/polls/:pollId/votes', async (request, reply) => {
 
   await prisma.vote.create({
     data: {
-      sessionId,
-      pollId,
+      sessionId, 
+      pollId, 
       pollOptionId
     }
   })
