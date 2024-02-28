@@ -36,6 +36,9 @@ app.post('/polls/:pollId/votes', async (request, reply) => {
         id: userPreviousVoteOnPoll.id
       }
      })
+
+     await redis.zincrby(pollId, -1, userPreviousVoteOnPoll.pollOptionId)
+
     } else if (userPreviousVoteOnPoll){
       return reply.status(400).send({ message: 'You already voted on this poll.' })
     }
